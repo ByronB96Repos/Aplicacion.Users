@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h5>Modulo de Administracion</h5>
+            <h1 class="titulo">Administracion de usuarios</h1>
+            <div class="form-container">
+                <div class="mb-3">
+                    <select class="form-select" id="idDepartamento" 
+                        [(ngModel)]="selectedDepartamento"
+                        (change)="filtrarTabla()"
+                        style="background-color: rgb(224, 231, 235); color: rgb(147, 164, 194); border: 0px solid #ccc; border-radius: 1px; font-family: 'Roboto', sans-serif; font-size: 12px; width: 300px;">
+                        <option selected [value]="0">Seleccione un Departamento</option>
+                        <option *ngFor="let dept of departamentos" [value]="dept.id">
+                            {{ dept.nombre }}
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select class="form-select" id="idCargo" 
+                        [(ngModel)]="selectedCargo"
+                        (change)="filtrarTabla()"
+                        style="background-color: rgb(224, 231, 235); color: rgb(147, 164, 194); border: 0px solid #ccc; border-radius: 1px; font-family: 'Roboto', sans-serif; font-size: 12px; width: 300px;">
+                        <option selected [value]="0">Seleccione un Cargo</option>
+                        <option *ngFor="let carg of cargos" [value]="carg.id">
+                            {{ carg.nombre }}
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <button class="btn-nuevo" (click)="openCreateUserModal()">
+                        Crear nuevo usuario
+                    </button> 
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card-body">
+        <div class="container-white">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body-container">
+                        <div class="table-responsive">
+                            
+                            <table mat-table [dataSource]="dataSource" class="border-table">
+                                <!-- Columnas de la tabla -->
+                                <ng-container matColumnDef="usuario">
+                                    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> <strong>Usuario</strong> </th>
+                                    <td mat-cell *matCellDef="let element"> {{ element.usuario }} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="primernombre">
+                                    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> <strong>Nombres</strong> </th>
+                                    <td mat-cell *matCellDef="let element"> {{ element.primerNombre }} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="primerapellido">
+                                    <th mat-header-cell *matHeaderCellDef style="text-align: center;"><strong>Apellidos</strong> </th>
+                                    <td mat-cell *matCellDef="let element"> {{ element.primerApellido }} </td>
+                                </ng-container>
+                                
+                                <ng-container matColumnDef="departamento">
+                                    <th mat-header-cell *matHeaderCellDef style="text-align: center;"><strong>Departamento</strong>  </th>
+                                    <td mat-cell *matCellDef="let element"> {{ element.departamento }} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="cargo">
+                                    <th mat-header-cell *matHeaderCellDef style="text-align: center;"><strong>Cargo</strong> </th>
+                                    <td mat-cell *matCellDef="let element"> {{ element.cargo }} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="acciones">
+                                    <th mat-header-cell *matHeaderCellDef style="text-align: center;"><strong>Acciones</strong> </th>
+                                    <td mat-cell *matCellDef="let element" >
+                                        <div class="action-buttons">
+                                            <button class="btn-edit" (click)="openEditUserModal(element.id)">
+                                                <span class="material-symbols-outlined">edit_square</span> Editar
+                                            </button>
+                                            <button class="btn-delete" (click)="deleteCargo(element.id)">
+                                                <span class="material-symbols-outlined">delete</span> Eliminar
+                                            </button>
+                                        </div>
+                                    </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <span><strong>Total Registros: {{ usuarios.length }}</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

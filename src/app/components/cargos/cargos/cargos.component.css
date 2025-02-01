@@ -1,0 +1,109 @@
+/* Estilos generales */
+.card-header {
+    background-color: rgb(243, 244, 246);
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.card-body {
+    background-color: rgb(243, 244, 246);
+    padding: 20px;
+}
+
+/* Títulos */
+.titulo {
+    color: rgb(67, 83, 112);
+    font-weight: bold;
+}
+
+/* Contenedor blanco dentro de la tabla */
+.container-white {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Contenedor para el select y el botón */
+.form-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Evita el desbordamiento */
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Estilos del campo de selección */
+.form-select {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Botón al lado derecho */
+.btn-nuevo {
+    padding: 8px 15px; /* Espaciado interno */
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(67, 83, 112);
+    background: rgb(224, 226, 230); /* Fondo transparente */
+    white-space: nowrap;
+
+}
+/* Estilos de la tabla */
+.table-responsive {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    color: rgb(67, 83, 112);
+}
+
+/* Contenedor de botones */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Botones */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    padding: 5px;
+}
+
+/* Botones específicos */
+.btn-edit {
+    color: green;
+}
+
+.btn-delete {
+    color: red;
+}
+
+/* Tamaño uniforme para los íconos */
+.material-symbols-outlined {
+    font-size: 18px;
+}
+
+/* Footer */
+.card-footer {
+    background-color: rgb(248, 249, 250);
+    padding: 10px;
+    font-size: 14px;
+    color: #555555;
+}
+

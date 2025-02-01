@@ -1,0 +1,71 @@
+<mat-dialog-content>
+  <div class="modal-header">
+    <h2>Registrar usuario</h2>
+    <button mat-icon-button (click)="cancelar()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <form (submit)="registrar()">
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="form-column">
+          <label for="departamento"><strong>Departamento:</strong></label>
+          <select class="form-select" id="idDepartamento" [(ngModel)]="usuario.idDepartamento" name="idDepartamento"
+            style="background-color: rgb(224, 231, 235); color: rgb(147, 164, 194); border: 0px solid #ccc; border-radius: 1px; font-family: 'Roboto', sans-serif; font-size: 12px; width: 250px;">
+            <option selected [value]="0">Seleccione un Departamento</option>
+            <option *ngFor="let dept of departamentos" [value]="dept.id">
+              {{ dept.nombre }}
+            </option>
+          </select>
+        </div>
+        <div class="form-column">
+          <label for="cargo"><strong>Cargo:</strong></label>
+          <select class="form-select" id="idCargo" [(ngModel)]="usuario.idCargo" name="idCargo"
+            style="background-color: rgb(224, 231, 235); color: rgb(147, 164, 194); border: 0px solid #ccc; border-radius: 1px; font-family: 'Roboto', sans-serif; font-size: 12px; width: 250px;">
+            <option selected [value]="0">Seleccione un Perfil</option>
+            <option *ngFor="let carg of cargos" [value]="carg.id">
+              {{ carg.nombre }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-column">
+          <label for="usuario"><strong>Usuario:</strong></label>
+          <input type="text" id="usuario" [(ngModel)]="usuario.usuario" name="usuario" required />
+        </div>
+        <div class="form-column">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-column">
+          <label for="primerNombre"><strong>Primer Nombre:</strong></label>
+          <input type="text" id="primerNombre" [(ngModel)]="usuario.primerNombre" name="primerNombre" required />
+        </div>
+        <div class="form-column">
+          <label for="segundoNombre"><strong>Segundo Nombre:</strong></label>
+          <input type="text" id="segundoNombre" [(ngModel)]="usuario.segundoNombre" name="segundoNombre" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-column">
+          <label for="primerApellido"><strong>Primer Apellido:</strong></label>
+          <input type="text" id="primerApellido" [(ngModel)]="usuario.primerApellido" name="primerApellido" required />
+        </div>
+        <div class="form-column">
+          <label for="segundoApellido"><strong>Segundo Apellido:</strong></label>
+          <input type="text" id="segundoApellido" [(ngModel)]="usuario.segundoApellido" name="segundoApellido" />
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" style="border: 1px;">Registrar</button>
+      <button class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</mat-dialog-content>
